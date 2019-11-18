@@ -15,10 +15,11 @@ public class HeatEnergyPanel extends JPanel
 		super();
 		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 		
-		energyLabel = new JLabel("Heat Energy = " + 7 +" N");
+		energyLabel = new JLabel("Change In Tempreture = " + (float)Renderer.changeInTempreture +" K");
+		//vectorLabel = new JLabel("Net Vector = " + (float)Renderer.netVector +"°");
 		
 		add(energyLabel);
-		setBorder(BorderFactory.createTitledBorder("Test"));
-		setBounds(330, 520, 250, 45);
+		setBorder(BorderFactory.createTitledBorder("Change In Tempreture"));
+		setBounds(300, 520, 250, 40);
 	}
 }

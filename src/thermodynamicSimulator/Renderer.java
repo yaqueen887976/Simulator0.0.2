@@ -1,12 +1,8 @@
 package thermodynamicSimulator;
 
 import java.awt.Graphics;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-import java.net.URL;
 import java.util.ArrayList;
-import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
 
@@ -14,7 +10,8 @@ public class Renderer
 {
 	public static double changeInTempreture = 0;
 	private JFrame frame;
-	private BufferedImage img = null;
+	//private BufferedImage img = null;
+	private ImageIcon img = null;
 	public Renderer(JFrame frame) {
 		this.frame = frame;
 	}
@@ -38,24 +35,17 @@ public class Renderer
 			changeInTempreture = energy/(heat*mass);
 		}
 		
-		try
-		{
-		    //img = ImageIO.read(new File("C:\\Users\\yaqin\\eclipse-workspace\\Simulator\\src\\thermodynamicSimulator\\graph.PNG" ));
-		    //img = ImageIO.read(new File("../graph.PNG" ));
-		    URL url = getClass().getResource("graph.PNG");
-		    File file = new File(url.getPath());
-		    img = ImageIO.read(file);
-	
-		}
-		catch ( IOException exc )
-		{
-			System.out.println("warning");
-		}
+		//img = ImageIO.read(new File("C:\\Users\\yaqin\\eclipse-workspace\\Simulator\\src\\thermodynamicSimulator\\graph.PNG" ));
+		//img = ImageIO.read(new File("../graph.PNG" ));
+		/*URL url = getClass().getResource("graph.PNG");
+		File file = new File(url.getPath());
+		img = ImageIO.read(file);*/
+		img = new ImageIcon(this.getClass().getClassLoader().getResource("images/graph.PNG"));
 		    
 		
 		HeatEnergyPanel.energyLabel.setText("Change in Tempreture = " + (float)Renderer.changeInTempreture +" K");
+		g.drawImage(img.getImage(),-200, -100,null);
 		
-		g.drawImage( img, -200, -100, null );
 		g.dispose();
 	}
 }
