@@ -148,13 +148,12 @@ public class HeatList extends JPanel implements ListSelectionListener
 		Main.screenPanel.setVisible(false);
 		Main.screenPanel.removeAll();
 		HeatPanel heatPanel = null;
-		if(index >= 0)
+		if(index > 0)
 		{
 			String name = list.getSelectedValue();
 			heatPanel = new HeatPanel(heatMap.get(name));
 			Main.screenPanel.add(heatPanel);
 		} else {
-			
 		}
 		
 		Main.screenPanel.add(new HeatEnergyPanel());
