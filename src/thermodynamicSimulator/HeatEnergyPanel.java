@@ -18,7 +18,7 @@ public class HeatEnergyPanel extends JPanel
 		energyLabel = new JLabel("Heat Energy = " + 7 +" N");
 		
 		add(energyLabel);
-		setBorder(BorderFactory.createTitledBorder("NET FORCE"));
+		setBorder(BorderFactory.createTitledBorder("Test"));
 		setBounds(330, 520, 250, 45);
 	}
 }

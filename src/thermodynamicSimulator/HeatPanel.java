@@ -10,11 +10,11 @@ public class HeatPanel extends JPanel implements ActionListener
 	private static final long serialVersionUID = 1L;
 	private static final String MASS = "MASS";
 	private static final String HEAT = "HEAT";
-	private static final String TIME = "TIME";
+	private static final String ENERGY = "ENERGY";
 	
-	private JLabel massLabel, heatLabel, timeLabel;
-	private JButton massButton, heatButton, timeButton;
-	private JPanel massPanel, heatPanel,timePanel;
+	private JLabel massLabel, heatLabel, energyLabel;
+	private JButton massButton, heatButton, energyButton;
+	private JPanel massPanel, heatPanel,energyPanel;
 	private Heat heat;
 	
 	public HeatPanel(Heat heat) {
@@ -22,21 +22,21 @@ public class HeatPanel extends JPanel implements ActionListener
 		this.heat = heat;
 		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 		
-		massLabel = new JLabel("Mass = " + heat.getMass() + " N");
-		heatLabel = new JLabel("Heat = " + heat.getHeat() + "°");
-		timeLabel = new JLabel("Time = " + heat.getTime() + "°");
+		massLabel = new JLabel("Mass = " + heat.getMass() + " kg");
+		heatLabel = new JLabel("Heat = " + heat.getHeat() + " J/kg*k");
+		energyLabel = new JLabel("Energy = " + heat.getEnergy() + " J");
 		
 		massButton = new JButton(EDIT);
 		heatButton = new JButton(EDIT);
-		timeButton = new JButton(EDIT);
+		energyButton = new JButton(EDIT);
 		
 		massButton.setActionCommand(MASS);
 		heatButton.setActionCommand(HEAT);
-		timeButton.setActionCommand(TIME);
+		energyButton.setActionCommand(ENERGY);
 		
 		massButton.addActionListener(this);
 		heatButton.addActionListener(this);
-		timeButton.addActionListener(this);
+		energyButton.addActionListener(this);
 		
 		massPanel = new JPanel();
 		massPanel.setLayout(new BoxLayout(massPanel, BoxLayout.X_AXIS));
@@ -52,16 +52,16 @@ public class HeatPanel extends JPanel implements ActionListener
 		heatPanel.add(heatButton);
 		heatPanel.setBorder(BorderFactory.createRaisedBevelBorder());
 		
-		timePanel = new JPanel();
-		timePanel.setLayout(new BoxLayout(timePanel, BoxLayout.X_AXIS));
-		timePanel.add(timeLabel);
-		timePanel.add(Box.createHorizontalGlue());
-		timePanel.add(timeButton);
-		timePanel.setBorder(BorderFactory.createRaisedBevelBorder());
+		energyPanel = new JPanel();
+		energyPanel.setLayout(new BoxLayout(energyPanel, BoxLayout.X_AXIS));
+		energyPanel.add(energyLabel);
+		energyPanel.add(Box.createHorizontalGlue());
+		energyPanel.add(energyButton);
+		energyPanel.setBorder(BorderFactory.createRaisedBevelBorder());
 		
 		add(massPanel);
 		add(heatPanel);
-		add(timePanel);
+		add(energyPanel);
 		
 		setBorder(BorderFactory.createTitledBorder(heat.name.toUpperCase()));
 		setBounds(5, 0, 300, 120);
@@ -79,21 +79,21 @@ public class HeatPanel extends JPanel implements ActionListener
 					float newMass = Float.parseFloat(JOptionPane.showInputDialog(Main.frame, "Enter the force's new magnitude", "Edit Force", JOptionPane.QUESTION_MESSAGE, null, null, oldMass).toString());
 					if(newMass == oldMass) { return; }
 					heat.setMass(newMass);
-					massLabel.setText("Mass = " + heat.getMass() + " N");
+					massLabel.setText("Mass = " + heat.getMass() + " kg");
 					break;
 				case HEAT:
 					float oldHeat = heat.getHeat();
 					float newHeat = Float.parseFloat(JOptionPane.showInputDialog(Main.frame, "Enter the force's new magnitude", "Edit Force", JOptionPane.QUESTION_MESSAGE, null, null, oldHeat).toString());
 					if(newHeat == oldHeat) { return; }
 					heat.setHeat(newHeat);
-					heatLabel.setText("Heat = " + heat.getHeat() + " N");
+					heatLabel.setText("Heat = " + heat.getHeat() + " (Units J/kg*k)");
 					break;
-				case TIME:
-					float oldTime = heat.getTime();
-					float newTime = Float.parseFloat(JOptionPane.showInputDialog(Main.frame, "Enter the force's new vector", "Edit Force", JOptionPane.QUESTION_MESSAGE, null, null, oldTime).toString());
-					if(newTime == oldTime) { return; }
-					heat.setTime(newTime);
-					timeLabel.setText("Time = " + heat.getTime() + "°");
+				case ENERGY:
+					float oldEnergy = heat.getEnergy();
+					float newEnergy = Float.parseFloat(JOptionPane.showInputDialog(Main.frame, "Enter the force's new vector", "Edit Force", JOptionPane.QUESTION_MESSAGE, null, null, oldEnergy).toString());
+					if(newEnergy == oldEnergy) { return; }
+					heat.setEnergy(newEnergy);
+					energyLabel.setText("Energy = " + heat.getEnergy() + " (Joules, J)");
 					break;
 					default: break;
 			}

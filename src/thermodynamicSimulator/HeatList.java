@@ -9,9 +9,6 @@ import javax.swing.event.*;
 
 public class HeatList extends JPanel implements ListSelectionListener
 {
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private static final String addString = "ADD", removeString = "REMOVE";
 	
@@ -49,7 +46,6 @@ public class HeatList extends JPanel implements ListSelectionListener
 		heatField.addActionListener(addListener);
 		heatField.getDocument().addDocumentListener(addListener);
 		
-		String name = listModel.getElementAt(list.getSelectedIndex()).toString();
 		
 		JPanel buttonPane = new JPanel();
 		buttonPane.setLayout(new BoxLayout(buttonPane, BoxLayout.LINE_AXIS));
@@ -148,17 +144,15 @@ public class HeatList extends JPanel implements ListSelectionListener
 		Main.screenPanel.setVisible(false);
 		Main.screenPanel.removeAll();
 		HeatPanel heatPanel = null;
-		if(index > 0)
+		if(index >= 0)
 		{
 			String name = list.getSelectedValue();
 			heatPanel = new HeatPanel(heatMap.get(name));
 			Main.screenPanel.add(heatPanel);
-		} else {}
-		/*else 
-		{ 
-			Main.screenPanel.add(Main.bodyPanel); 
-			Main.bodyPanel.modify();
-		}*/
+		} else {
+			
+		}
+		
 		Main.screenPanel.add(new HeatEnergyPanel());
 		Main.screenPanel.revalidate();
 		Main.screenPanel.repaint();

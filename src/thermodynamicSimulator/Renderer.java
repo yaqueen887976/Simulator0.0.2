@@ -12,7 +12,7 @@ import javax.swing.JFrame;
 
 public class Renderer
 {
-	public static double heatEnergy = 0;
+	public static double changeInTempreture = 0;
 	private JFrame frame;
 	private BufferedImage img = null;
 	public Renderer(JFrame frame) {
@@ -32,8 +32,10 @@ public class Renderer
 		for(int i=0; i<heatArray.size(); i++) {
 			float mass = heatArray.get(i).getMass();
 			float heat = heatArray.get(i).getHeat();
-			float time = heatArray.get(i).getTime();
-			heatEnergy = mass * heat * time;
+			float energy = heatArray.get(i).getEnergy();
+			//Q = cmt 
+			//c is specific heat, m is mass of substance and t is change in tempreture
+			changeInTempreture = energy/(heat*mass);
 		}
 		
 		try
@@ -51,7 +53,7 @@ public class Renderer
 		}
 		    
 		
-		HeatEnergyPanel.energyLabel.setText("Net Force = " + (float)Renderer.heatEnergy +" N");
+		HeatEnergyPanel.energyLabel.setText("Change in Tempreture = " + (float)Renderer.changeInTempreture +" K");
 		
 		g.drawImage( img, -200, -100, null );
 		g.dispose();

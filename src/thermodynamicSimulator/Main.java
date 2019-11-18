@@ -14,13 +14,13 @@ public class Main implements Runnable
 	public static JFrame frame;
 	public static JPanel screenPanel;
 	public static HeatEnergyPanel heatEnergyPanel;
+
 	
 	public Renderer rend;
 	public HeatList heatList;
 	
 	public static void main(String[] args) {
 		Main main = new Main();
-		
 		new Thread(main).start();
 	}
 	
