@@ -6,7 +6,11 @@ import java.util.*;
 import javax.swing.*;
 import javax.swing.event.*;
 
-
+/**
+ * 
+ * @author yaqin
+ * Purpose: Left side scroll lists 
+ */
 public class HeatList extends JPanel implements ListSelectionListener
 {
 	private static final long serialVersionUID = 1L;

@@ -4,6 +4,11 @@ package thermodynamicSimulator;
 import java.awt.event.*;
 import javax.swing.*;
 
+/**
+ * 
+ * @author yaqin
+ *	Purpose: Get the left corner Mass, Heat and Energy Panel that can be modified
+ */
 public class HeatPanel extends JPanel implements ActionListener
 {
 	public static final String EDIT = "edit";
@@ -67,6 +72,7 @@ public class HeatPanel extends JPanel implements ActionListener
 		setBounds(5, 0, 300, 120);
 	}
 	
+	// Check if edited value is a valid float number, and change it if it's a valid value
 	public void actionPerformed(ActionEvent e)
 	{
 		String action = e.getActionCommand();

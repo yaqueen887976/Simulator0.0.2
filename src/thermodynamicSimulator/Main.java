@@ -4,6 +4,11 @@ import java.awt.Color;
 import java.awt.Dimension;
 import javax.swing.JPanel;
 
+/**
+ * 
+ * @author yaqin
+ * Purpose: This class is for draw the overall software panel structure
+ */
 public class Main implements Runnable
 {
 	public static final String VERSION = "0.0.1";
@@ -25,6 +30,7 @@ public class Main implements Runnable
 	}
 	
 	public Main() {
+		//the structure of software
 		frame = new JFrame();
 		frame.setSize(SCREEN_SIZE);
 		frame.setTitle(TITLE);
