@@ -31,7 +31,7 @@ public class Heat
 	public float getHeat() { return this.heat;}
 	public float getTime() { return this.time;}
 	
-	public String toString() {return this.name + ":" + this.mass+"@"+this.heat+this.time;}
+	public String toString() {return "Name: "+ this.name + "Mass: " + this.mass+"Heat: "+this.heat+"Time: "+this.time;}
 	public Object clone() {return new Heat(this.name, this.mass, this.heat, this.time);}
 	/*
 	public boolean equals(Object obj) {
