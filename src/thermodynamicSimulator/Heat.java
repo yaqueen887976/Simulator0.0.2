@@ -11,9 +11,9 @@ public class Heat
 	
 	public Heat(String name) {
 		this.name = name;
-		this.mass = 0;
-		this.heat = 0;
-		this.energy = 0;
+		this.mass = 5;
+		this.heat = 4190;
+		this.energy = 1676000;
 	}
 	
 	public Heat(String name, float energy, float mass,float heat) {
